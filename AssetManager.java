@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class AssetManager {
 
@@ -15,7 +16,7 @@ public class AssetManager {
         frame.setVisible(true);
     }
 
-    class StartButtonListener implements ActionListener {
+    public static class StartButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             System.out.println("I was pressed!");
         }
