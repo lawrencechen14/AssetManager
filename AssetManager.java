@@ -15,7 +15,7 @@ public class AssetManager {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(startButton);
-        frame.getContentPane().add(nextButton);
+        //frame.getContentPane().add(nextButton);
         frame.setSize(1000, 1000);
         frame.setVisible(true);
     }
