@@ -14,7 +14,12 @@ public class AssetManager implements ActionListener {
     }
 
     public static JPanel Start() {
-        JPanel start = new JPanel(new BorderLayout());
+        JPanel start = new JPanel();
+        start.setLayout(new GridLayout(3, 4));
+
+        JLabel title = new JLabel("Asset Manager");
+        title.setFont(new Font("Arial", Font.PLAIN, 200));
+        start.add(title);
 
         JButton startButton = new JButton("Start");
         startButton.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -38,16 +43,22 @@ public class AssetManager implements ActionListener {
             }
         });
 
-        start.add(startButton, BorderLayout.CENTER);
-        start.add(aboutButton, BorderLayout.CENTER);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridy = 3;
+        gbc.gridx = 3;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+
+        start.add(startButton, gbc);
+        start.add(aboutButton, gbc);
 
         return start;
     }
 
     public static JPanel Menu() {
         JPanel menu = new JPanel();
-        FlowLayout flow = new FlowLayout();
-        menu.setLayout(flow);
+        menu.setLayout(new FlowLayout());
 
         menu.add(new JButton("Button 1"));
         menu.add(new JButton("Button 2"));
