@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class AssetManager implements ActionListener {
+public class AssetManager extends JPanel implements ActionListener {
     static AssetManager gui = new AssetManager();
     static JFrame frame = new JFrame();
 
@@ -14,12 +14,12 @@ public class AssetManager implements ActionListener {
     }
 
     public static JPanel Start() {
-        JPanel start = new JPanel();
-        start.setLayout(new GridLayout(3, 4));
+        JPanel startPanel = new JPanel();
+        startPanel.setLayout(new GridBagLayout());
 
         JLabel title = new JLabel("Asset Manager");
         title.setFont(new Font("Arial", Font.PLAIN, 200));
-        start.add(title);
+        //startPanel.add(title);
 
         JButton startButton = new JButton("Start");
         startButton.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -43,17 +43,34 @@ public class AssetManager implements ActionListener {
             }
         });
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.gridy = 3;
-        gbc.gridx = 3;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
+        GridBagConstraints gTitle = new GridBagConstraints();
+        gTitle.fill = GridBagConstraints.CENTER;
+        //gbc.anchor = GridBagConstraints.CENTER;
+        gTitle.ipady = 40;
+        gTitle.weightx = 1.0;
+        gTitle.weighty = 1.0;
+        //gbc.gridy = 3;
+        //gbc.gridx = 3;
+        gTitle.gridwidth = 2;
+        gTitle.gridheight = 2;
+        //gbc.insets = new Insets(100, 100, 100, 100);
 
-        start.add(startButton, gbc);
-        start.add(aboutButton, gbc);
+        GridBagConstraints gButton = new GridBagConstraints();
+        gButton.fill = GridBagConstraints.HORIZONTAL;
+        //gbc.anchor = GridBagConstraints.CENTER;
+        gButton.ipady = 20;
+        gButton.weightx = 1.0;
+        gButton.weighty = 1.0;
+        //gbc.gridy = 3;
+        //gbc.gridx = 3;
+        gButton.gridwidth = 3;
+        gButton.gridheight = 4;
 
-        return start;
+        startPanel.add(title, gTitle);
+        startPanel.add(startButton, gButton);
+        startPanel.add(aboutButton, gButton);
+
+        return startPanel;
     }
 
     public static JPanel Menu() {
