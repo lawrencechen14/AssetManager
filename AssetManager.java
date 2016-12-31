@@ -2,18 +2,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class AssetManager extends JPanel implements ActionListener {
-    static AssetManager gui = new AssetManager();
-    static JFrame frame = new JFrame(" Asset Manager");
+public class AssetManager {
+    JFrame frame;
 
     public static void main(String[] args) {
+        AssetManager gui = new AssetManager();
+        gui.go();
+    }
+
+    public void go() {
+        frame = new JFrame(" Asset Manager");
         frame.add(Start());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(3000, 2000);
         frame.setVisible(true);
     }
 
-    public static JPanel Start() {
+    public JPanel Start() {
         JPanel startPanel = new JPanel();
         startPanel.setLayout(new GridBagLayout());
 
@@ -26,42 +31,23 @@ public class AssetManager extends JPanel implements ActionListener {
         JButton startButton = new JButton("Start");
         startButton.setFont(new Font("Arial", Font.PLAIN, 40));
         startButton.setPreferredSize(new Dimension(300,100));
-        startButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                frame.getContentPane().removeAll();
-                frame.getContentPane().add(Menu());
-                frame.revalidate();
-            }
-        });
+        startButton.addActionListener(new StartButtonListener());
 
         JButton aboutButton = new JButton("About");
         aboutButton.setFont(new Font("Arial", Font.PLAIN, 40));
         aboutButton.setPreferredSize(new Dimension(300,100));
-        aboutButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                frame.getContentPane().removeAll();
-                frame.getContentPane().add(Menu());
-                frame.revalidate();
-            }
-        });
+        aboutButton.addActionListener(new AboutButtonListener());
 
         JButton exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Arial", Font.PLAIN, 40));
         exitButton.setPreferredSize(new Dimension(300,100));
-        exitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                frame.getContentPane().removeAll();
-                frame.getContentPane().add(Menu());
-                frame.revalidate();
-            }
-        });
+        exitButton.addActionListener(new ExitButtonListener());
 
         GridBagConstraints gTitle = new GridBagConstraints();
         gTitle.anchor = GridBagConstraints.PAGE_START;
         gTitle.ipady = 40;
         gTitle.weightx = 0.5;
         gTitle.weighty = 0.5;
-        //gbc.gridy = 3;
         gTitle.gridx = 3;
         gTitle.gridwidth = 2;
         gTitle.gridheight = 2;
@@ -72,7 +58,6 @@ public class AssetManager extends JPanel implements ActionListener {
         gBywhom.ipady = 10;
         gBywhom.weightx = 1.0;
         gBywhom.weighty = 1.0;
-        //gbc.gridy = 3;
         gBywhom.gridx = 3;
         gBywhom.gridwidth = 2;
         gBywhom.gridheight = 10;
@@ -82,7 +67,6 @@ public class AssetManager extends JPanel implements ActionListener {
         gButton.ipady = 0;
         gButton.weightx = 1.0;
         gButton.weighty = 0.0;
-        //gbc.gridy = 3;
         gButton.gridx = 2;
         gButton.gridwidth = 4;
         gButton.gridheight = 1;
@@ -97,7 +81,31 @@ public class AssetManager extends JPanel implements ActionListener {
         return startPanel;
     }
 
-    public static JPanel Menu() {
+    class StartButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Menu());
+            frame.revalidate();
+        }
+    }
+
+    class AboutButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Menu());
+            frame.revalidate();
+        }
+    }
+
+    class ExitButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Menu());
+            frame.revalidate();
+        }
+    }
+
+    public JPanel Menu() {
         JPanel menu = new JPanel();
         menu.setLayout(new FlowLayout());
 
