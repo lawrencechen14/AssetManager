@@ -81,7 +81,7 @@ public class AssetManager {
         return startPanel;
     }
 
-    class StartButtonListener implements ActionListener {
+    private class StartButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             frame.getContentPane().removeAll();
             frame.getContentPane().add(Menu());
@@ -89,38 +89,110 @@ public class AssetManager {
         }
     }
 
-    class AboutButtonListener implements ActionListener {
+    private class AboutButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             frame.getContentPane().removeAll();
-            frame.getContentPane().add(Menu());
+            frame.getContentPane().add(About());
             frame.revalidate();
         }
     }
 
-    class ExitButtonListener implements ActionListener {
+    private class ExitButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            frame.getContentPane().removeAll();
-            frame.getContentPane().add(Menu());
-            frame.revalidate();
+            System.exit(0);
         }
+    }
+
+    public JPanel About() {
+        JPanel aboutPanel = new JPanel();
+        aboutPanel.setLayout(new BoxLayout());
+
+        JLabel aboutTitle = new JLabel("About This Program");
+        aboutTitle.setFont(new Font("Arial", Font.PLAIN, 200));
+
+        JLabel aboutInfo = new JLabel("<html>" + "This project is my first big java program" + "</html>");
+
+        aboutPanel.add(aboutTitle);
+        aboutPanel.add(aboutInfo);
+
+        return aboutPanel;
     }
 
     public JPanel Menu() {
-        JPanel menu = new JPanel();
-        menu.setLayout(new FlowLayout());
+        JPanel menuPanel = new JPanel();
+        menuPanel.setLayout(new FlowLayout());
 
-        menu.add(new JButton("Button 1"));
-        menu.add(new JButton("Button 2"));
-        menu.add(new JButton("Button 3"));
-        menu.add(new JButton("Button 4"));
-        menu.add(new JButton("Button 5"));
+        JButton Button1 = new JButton("Button1");
+        Button1.setFont(new Font("Arial", Font.PLAIN, 40));
+        Button1.setPreferredSize(new Dimension(300,100));
+        Button1.addActionListener(new Button1Listener());
 
-        return menu;
+        JButton Button2 = new JButton("Button2");
+        Button2.setFont(new Font("Arial", Font.PLAIN, 40));
+        Button2.setPreferredSize(new Dimension(300,100));
+        Button2.addActionListener(new Button2Listener());
+
+        JButton Button3 = new JButton("Button3");
+        Button3.setFont(new Font("Arial", Font.PLAIN, 40));
+        Button3.setPreferredSize(new Dimension(300,100));
+        Button3.addActionListener(new Button3Listener());
+
+        JButton Button4 = new JButton("Button4");
+        Button4.setFont(new Font("Arial", Font.PLAIN, 40));
+        Button4.setPreferredSize(new Dimension(300,100));
+        Button4.addActionListener(new Button4Listener());
+
+        JButton Button5 = new JButton("Button5");
+        Button5.setFont(new Font("Arial", Font.PLAIN, 40));
+        Button5.setPreferredSize(new Dimension(300,100));
+        Button5.addActionListener(new Button5Listener());
+
+        menuPanel.add(new JButton("Button 1"));
+        menuPanel.add(new JButton("Button 2"));
+        menuPanel.add(new JButton("Button 3"));
+        menuPanel.add(new JButton("Button 4"));
+        menuPanel.add(new JButton("Button 5"));
+
+        return menuPanel;
     }
 
-    public void actionPerformed(ActionEvent event) {
-        frame.getContentPane().removeAll();
-        frame.getContentPane().add(Menu());
-        frame.revalidate();
+    private class Button1Listener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Menu());
+            frame.revalidate();
+        }
+    }
+
+    private class Button2Listener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Menu());
+            frame.revalidate();
+        }
+    }
+
+    private class Button3Listener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Menu());
+            frame.revalidate();
+        }
+    }
+
+    private class Button4Listener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Menu());
+            frame.revalidate();
+        }
+    }
+
+    private class Button5Listener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Menu());
+            frame.revalidate();
+        }
     }
 }
