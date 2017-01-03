@@ -105,20 +105,27 @@ public class AssetManager {
 
     public JPanel About() {
         JPanel aboutPanel = new JPanel();
-        //aboutPanel.setLayout(new BoxLayout());
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBounds(100, 100, 100, 100);
+        aboutPanel.add(panel);
 
         JLabel aboutTitle = new JLabel("About This Program");
-        aboutTitle.setFont(new Font("Arial", Font.PLAIN, 200));
+        aboutTitle.setFont(new Font("Arial", Font.PLAIN, 150));
+        aboutTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel aboutInfo = new JLabel("<html>" + "This project is my first big java program" + "</html>");
+        JLabel aboutInfo = new JLabel("<html>" + "This is version 1.0.1 of my AssetManager program. This project is my first large java program. I built this with a friendly user interface to make keeping track of personal or company assets easier and more effective." + "</html>");
+        aboutInfo.setFont(new Font("Arial", Font.PLAIN, 40));
+        aboutInfo.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JButton backButton = new JButton("Exit");
+        JButton backButton = new JButton("Back");
         backButton.setFont(new Font("Arial", Font.PLAIN, 40));
         backButton.setPreferredSize(new Dimension(300,100));
         backButton.addActionListener(new BackButtonListener());
 
-        aboutPanel.add(aboutTitle);
-        aboutPanel.add(aboutInfo);
+        panel.add(aboutTitle);
+        panel.add(aboutInfo);
+        panel.add(backButton);
 
         return aboutPanel;
     }
