@@ -105,17 +105,30 @@ public class AssetManager {
 
     public JPanel About() {
         JPanel aboutPanel = new JPanel();
-        aboutPanel.setLayout(new BoxLayout());
+        //aboutPanel.setLayout(new BoxLayout());
 
         JLabel aboutTitle = new JLabel("About This Program");
         aboutTitle.setFont(new Font("Arial", Font.PLAIN, 200));
 
         JLabel aboutInfo = new JLabel("<html>" + "This project is my first big java program" + "</html>");
 
+        JButton backButton = new JButton("Exit");
+        backButton.setFont(new Font("Arial", Font.PLAIN, 40));
+        backButton.setPreferredSize(new Dimension(300,100));
+        backButton.addActionListener(new BackButtonListener());
+
         aboutPanel.add(aboutTitle);
         aboutPanel.add(aboutInfo);
 
         return aboutPanel;
+    }
+
+    private class BackButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            frame.getContentPane().removeAll();
+            frame.getContentPane().add(Start());
+            frame.revalidate();
+        }
     }
 
     public JPanel Menu() {
