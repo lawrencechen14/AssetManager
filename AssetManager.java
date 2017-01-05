@@ -105,6 +105,7 @@ public class AssetManager {
 
     public JPanel About() {
         JPanel aboutPanel = new JPanel();
+        //GridBagConstraints gbc = new GridBagConstraints();
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBounds(100, 100, 100, 100);
@@ -122,6 +123,7 @@ public class AssetManager {
         backButton.setFont(new Font("Arial", Font.PLAIN, 40));
         backButton.setPreferredSize(new Dimension(300,100));
         backButton.addActionListener(new BackButtonListener());
+        backButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         panel.add(aboutTitle);
         panel.add(aboutInfo);
@@ -167,11 +169,17 @@ public class AssetManager {
         Button5.setPreferredSize(new Dimension(300,100));
         Button5.addActionListener(new Button5Listener());
 
-        menuPanel.add(new JButton("Button 1"));
-        menuPanel.add(new JButton("Button 2"));
-        menuPanel.add(new JButton("Button 3"));
-        menuPanel.add(new JButton("Button 4"));
-        menuPanel.add(new JButton("Button 5"));
+        JButton backButton = new JButton("Back");
+        backButton.setFont(new Font("Arial", Font.PLAIN, 40));
+        backButton.setPreferredSize(new Dimension(300,100));
+        backButton.addActionListener(new BackButtonListener());
+
+        menuPanel.add(Button1);
+        menuPanel.add(Button2);
+        menuPanel.add(Button3);
+        menuPanel.add(Button4);
+        menuPanel.add(Button5);
+        menuPanel.add(backButton);
 
         return menuPanel;
     }
