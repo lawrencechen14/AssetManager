@@ -1,3 +1,3 @@
 # Asset Manager
-A cool java program to manage your assets.
+A cool java program to manage your assets.<br>
 More to come soon!
